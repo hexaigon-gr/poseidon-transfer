@@ -13,7 +13,7 @@ const HeroSection = () => {
       <div className="absolute inset-0 overflow-hidden">
         <Image
           src="/images/hero-greece.jpg"
-          alt="Luxury Transfer in Greece"
+          alt={t("imageAlt")}
           width={1920}
           height={1080}
           priority
@@ -27,10 +27,8 @@ const HeroSection = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-2xl text-white">
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4">
-            <span className="gold-text block mb-1 sm:mb-2">Athens VIP Transfer</span>
-            <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl">
-              Luxury Private Transfers & Tours in Greece
-            </span>
+            <span className="gold-text block mb-1 sm:mb-2">{t("h1Line1")}</span>
+            <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl">{t("h1Line2")}</span>
           </h1>
           <p className="text-base sm:text-lg md:text-xl text-white/90 mb-6 sm:mb-8 line-clamp-3 sm:line-clamp-none">
             {t("description")}

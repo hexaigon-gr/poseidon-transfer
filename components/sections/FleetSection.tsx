@@ -58,7 +58,7 @@ const VehicleCard = ({ image, model, capacity, luggage, tags = [], description }
       <div className="h-56 w-full relative overflow-hidden">
         <Image
           src={image}
-          alt={model}
+          alt={`${model} luxury vehicle for private Athens transfers and tours`}
           width={400}
           height={300}
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"

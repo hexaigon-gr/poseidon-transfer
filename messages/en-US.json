@@ -19,7 +19,10 @@
     "subtitle": "Luxury Private Transfers and Guided Tours in Greece",
     "description": "Reliable, safe and premium transport services and guided tours throughout Greece.",
     "bookNow": "Book Now",
-    "exploreFleet": "Explore Our Fleet"
+    "exploreFleet": "Explore Our Fleet",
+    "h1Line1": "Athens VIP Transfers",
+    "h1Line2": "Luxury Private Tours & Transfers in Greece",
+    "imageAlt": "Luxury private transfer Mercedes vehicle on the Athens Riviera"
   },
   "Services": {
     "title": "Our Premium Services",
@@ -211,6 +214,10 @@
       "phone": "Phone",
       "email": "Email",
       "address": "Address",
+      "addressValue": "Athens, Greece",
+      "workingHours": "Working Hours",
+      "workingHoursValue": "24/7 — always available for you",
+      "getInTouch": "Get in touch with us",
       "follow": "Follow Us"
     },
     "office": {
@@ -218,12 +225,23 @@
       "description": "Central location near Athens International Airport with easy access to all major destinations"
     },
     "form": {
-      "title": "Send a Message",
+      "title": "Send us a message",
       "fullName": "Full Name*",
       "email": "Email Address*",
       "subject": "Subject*",
       "message": "Message*",
-      "submit": "Send Message"
+      "submit": "Send Message",
+      "sending": "Sending...",
+      "namePlaceholder": "Your name",
+      "emailPlaceholder": "Your email address",
+      "messagePlaceholder": "How can we help you?",
+      "nameLabel": "Name",
+      "emailFieldLabel": "Email",
+      "messageLabel": "Message",
+      "successTitle": "Message sent successfully!",
+      "successDescription": "We'll get back to you soon.",
+      "errorTitle": "Failed to send message",
+      "errorDescription": "Please try again or contact us directly."
     }
   },
   "Footer": {
@@ -233,6 +251,21 @@
     "contact": "Contact Us",
     "rights": "All rights reserved.",
     "privacy": "Privacy Policy",
-    "terms": "Terms & Conditions"
+    "terms": "Terms & Conditions",
+    "links": {
+      "home": "Home",
+      "services": "Services",
+      "fleet": "Our Fleet",
+      "tours": "Tours",
+      "about": "About Us",
+      "blog": "Travel Guides"
+    },
+    "servicesList": {
+      "airport": "Athens Airport Transfers",
+      "business": "Business Travel",
+      "tours": "Guided Tours",
+      "wedding": "Wedding & Event Transfers",
+      "port": "Port Transfers"
+    }
   }
 }

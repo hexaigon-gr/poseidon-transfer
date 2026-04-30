@@ -18,10 +18,9 @@ const Header = () => {
 
   const navItems = [
     { name: t("home"), href: `/${locale}` },
-    { name: t("services"), href: `/${locale}/#services` },
+    { name: t("tours"), href: `/${locale}/private-tours-athens` },
     { name: t("fleet"), href: `/${locale}/#fleet` },
-    { name: t("tours"), href: `/${locale}/#tours` },
-    { name: t("about"), href: `/${locale}/#about` },
+    { name: t("about"), href: `/${locale}/about` },
     { name: t("contact"), href: `/${locale}/#contact` },
   ];
 

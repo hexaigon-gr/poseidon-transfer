@@ -12,6 +12,7 @@ import { VehicleProvider } from "../../contexts/VehicleContext";
 import WhatsAppButton from "../../components/ui/WhatsAppButton";
 import { DOMAIN, PHONE_NUMBER } from "@/lib/data/config";
 import Script from "next/script";
+import { localBusinessSchema, websiteSchema, jsonLdScript } from "@/lib/seo/schema";
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -26,7 +27,6 @@ export const viewport: Viewport = {
 
 type Props = {
   params: Promise<{ locale: string }>;
-  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -107,6 +107,14 @@ export default async function RootLayout({
       </Script>
 
       <body className="min-h-screen antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={jsonLdScript(localBusinessSchema())}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={jsonLdScript(websiteSchema())}
+        />
         <NextIntlClientProvider locale={locale} messages={messages}>
           <VehicleProvider>
             <Header />

@@ -42,3 +42,6 @@ next-env.d.ts
 
 # Generated translation type files
 messages/*.d.json.ts
+
+# Image compression backups (originals before sharp optimization)
+/public/images/_originals/

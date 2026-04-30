@@ -74,11 +74,19 @@ const ToursSection = () => {
           ))}
         </div>
 
-        <div className="text-center mt-10">
-          <p className="text-muted-foreground mb-4">{t("customTour.description")}</p>
-          <Link href={`/${locale}/#contact`} className="cta-button inline-block">
-            {t("customTour.requestButton")}
+        <div className="text-center mt-10 space-y-6">
+          <Link
+            href={`/${locale}/private-tours-athens`}
+            className="inline-flex items-center text-primary hover:text-primary/80 font-semibold underline-offset-4 hover:underline transition-colors"
+          >
+            View all private tours from Athens →
           </Link>
+          <div>
+            <p className="text-muted-foreground mb-4">{t("customTour.description")}</p>
+            <Link href={`/${locale}/#contact`} className="cta-button inline-block">
+              {t("customTour.requestButton")}
+            </Link>
+          </div>
         </div>
       </div>
     </section>

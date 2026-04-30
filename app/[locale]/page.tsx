@@ -16,6 +16,8 @@ type Props = {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };
 
+export const revalidate = 3600;
+
 // Define viewport export
 export const viewport: Viewport = {
   width: "device-width",
@@ -46,25 +48,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       languages: {
         "en-US": `${DOMAIN}/en-US`,
         el: `${DOMAIN}/el`,
+        "x-default": `${DOMAIN}/en-US`,
       },
     },
-    keywords: [
-      "Athens VIP transfer",
-      "Luxury transportation Athens Greece",
-      "Private driver Athens",
-      "Executive car service Athens",
-      "Premium Athens tours",
-      "Professional chauffeur services Greece",
-      "Poseidon transfer Athens",
-      "Luxury Athens sightseeing",
-      "Private tours Athens Greece",
-      "Athens to Delphi private transfer",
-      "VIP hotel shuttle Athens",
-      "Athens cruise port transfer",
-      "City center private car Athens",
-      "English speaking driver Athens",
-      "5-star transfer service Greece",
-    ],
     authors: [{ name: "Poseidon Transfer" }],
     creator: "Poseidon Transfer",
     publisher: "Poseidon Transfer",

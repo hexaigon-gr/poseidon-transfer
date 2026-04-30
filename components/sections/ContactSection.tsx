@@ -2,7 +2,7 @@
 
 import { Phone, Mail, Instagram, Facebook, MapPin, Send, Clock } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { PHONE_NUMBER, EMAIL } from "../../lib/data/config";
+import { PHONE_NUMBER, EMAIL, SOCIAL } from "../../lib/data/config";
 import { useState } from "react";
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
@@ -40,19 +40,19 @@ const ContactSection = () => {
       });
 
       if (result.success) {
-        toast.success("Message sent successfully!", {
-          description: "We'll get back to you soon.",
+        toast.success(t("form.successTitle"), {
+          description: t("form.successDescription"),
         });
         setFormState({ name: "", email: "", message: "" });
       } else {
-        toast.error("Failed to send message", {
-          description: "Please try again or contact us directly.",
+        toast.error(t("form.errorTitle"), {
+          description: t("form.errorDescription"),
         });
       }
     } catch (error) {
       console.error("Error sending message:", error);
-      toast.error("Error", {
-        description: "Failed to send message. Please try again.",
+      toast.error(t("form.errorTitle"), {
+        description: t("form.errorDescription"),
       });
     } finally {
       setIsSubmitting(false);
@@ -69,7 +69,7 @@ const ContactSection = () => {
           <Card className="overflow-hidden border border-primary/10">
             <div className="bg-primary text-primary-foreground p-6">
               <h3 className="text-xl font-semibold">{t("title")}</h3>
-              <p className="mt-2 text-primary-foreground/80">Get in touch with us</p>
+              <p className="mt-2 text-primary-foreground/80">{t("athens.getInTouch")}</p>
             </div>
 
             <CardContent className="p-6 space-y-6">
@@ -99,68 +99,74 @@ const ContactSection = () => {
               <div className="flex items-start">
                 <MapPin className="h-5 w-5 text-primary flex-shrink-0 mt-1" />
                 <div className="ml-4">
-                  <h4 className="font-medium mb-1">Address</h4>
-                  <p className="text-muted-foreground">Athens, Greece</p>
+                  <h4 className="font-medium mb-1">{t("athens.address")}</h4>
+                  <p className="text-muted-foreground">{t("athens.addressValue")}</p>
                 </div>
               </div>
 
               <div className="flex items-start">
                 <Clock className="h-5 w-5 text-primary flex-shrink-0 mt-1" />
                 <div className="ml-4">
-                  <h4 className="font-medium mb-1">Working Hours</h4>
-                  <p className="text-muted-foreground">24/7 - Always available for you</p>
+                  <h4 className="font-medium mb-1">{t("athens.workingHours")}</h4>
+                  <p className="text-muted-foreground">{t("athens.workingHoursValue")}</p>
                 </div>
               </div>
 
-              <div className="pt-4 border-t border-border">
-                <h4 className="font-medium mb-3">{t("athens.follow")}</h4>
-                <div className="flex space-x-3">
-                  <a
-                    href="https://instagram.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="h-10 w-10 rounded-full bg-background border border-border flex items-center justify-center text-foreground hover:text-primary hover:border-primary transition-colors"
-                    aria-label="Instagram"
-                  >
-                    <Instagram className="h-5 w-5" />
-                  </a>
-                  <a
-                    href="https://facebook.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="h-10 w-10 rounded-full bg-background border border-border flex items-center justify-center text-foreground hover:text-primary hover:border-primary transition-colors"
-                    aria-label="Facebook"
-                  >
-                    <Facebook className="h-5 w-5" />
-                  </a>
+              {(SOCIAL.instagram || SOCIAL.facebook) && (
+                <div className="pt-4 border-t border-border">
+                  <h4 className="font-medium mb-3">{t("athens.follow")}</h4>
+                  <div className="flex space-x-3">
+                    {SOCIAL.instagram && (
+                      <a
+                        href={SOCIAL.instagram}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="h-10 w-10 rounded-full bg-background border border-border flex items-center justify-center text-foreground hover:text-primary hover:border-primary transition-colors"
+                        aria-label="Instagram"
+                      >
+                        <Instagram className="h-5 w-5" />
+                      </a>
+                    )}
+                    {SOCIAL.facebook && (
+                      <a
+                        href={SOCIAL.facebook}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="h-10 w-10 rounded-full bg-background border border-border flex items-center justify-center text-foreground hover:text-primary hover:border-primary transition-colors"
+                        aria-label="Facebook"
+                      >
+                        <Facebook className="h-5 w-5" />
+                      </a>
+                    )}
+                  </div>
                 </div>
-              </div>
+              )}
             </CardContent>
           </Card>
 
           {/* Contact Form */}
           <Card className="border border-primary/10">
             <CardContent className="p-6">
-              <h3 className="text-xl font-semibold mb-6">Send us a message</h3>
+              <h3 className="text-xl font-semibold mb-6">{t("form.title")}</h3>
 
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium mb-1">
-                    Name
+                    {t("form.nameLabel")}
                   </label>
                   <Input
                     id="name"
                     name="name"
                     value={formState.name}
                     onChange={handleChange}
-                    placeholder="Your name"
+                    placeholder={t("form.namePlaceholder")}
                     required
                   />
                 </div>
 
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium mb-1">
-                    Email
+                    {t("form.emailFieldLabel")}
                   </label>
                   <Input
                     id="email"
@@ -168,21 +174,21 @@ const ContactSection = () => {
                     type="email"
                     value={formState.email}
                     onChange={handleChange}
-                    placeholder="Your email address"
+                    placeholder={t("form.emailPlaceholder")}
                     required
                   />
                 </div>
 
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium mb-1">
-                    Message
+                    {t("form.messageLabel")}
                   </label>
                   <Textarea
                     id="message"
                     name="message"
                     value={formState.message}
                     onChange={handleChange}
-                    placeholder="How can we help you?"
+                    placeholder={t("form.messagePlaceholder")}
                     className="min-h-[150px]"
                     required
                   />
@@ -190,11 +196,11 @@ const ContactSection = () => {
 
                 <Button type="submit" className="w-full" disabled={isSubmitting}>
                   {isSubmitting ? (
-                    "Sending..."
+                    t("form.sending")
                   ) : (
                     <span className="flex items-center">
                       <Send className="h-4 w-4 mr-2" />
-                      Send Message
+                      {t("form.submit")}
                     </span>
                   )}
                 </Button>
